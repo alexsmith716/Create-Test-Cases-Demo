@@ -10,3 +10,5 @@ This project demonstrates test cases for a scenario of signing in to Amazon.com.
 * Java 8
 * Selenium Java 4.0.0
 * JUnit 5.8.1
+
+Moving to Cypress testing framework next.

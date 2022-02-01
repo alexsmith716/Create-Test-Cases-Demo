@@ -33,7 +33,8 @@ public class SigninPageAssertCorrectEmailCorrectPasswordTest extends BaseWebDriv
 			() -> assertTrue(signinPage.getNavItemSwitchAccount()),
 			() -> assertTrue(signinPage.getNavItemSignout()),
 			() -> assertTrue(signinPage.getNavYourAmazon()),
-			() -> assertTrue(signinPage.getWindowLocationHref())
+			() -> assertTrue(signinPage.getWindowLocationHref()),
+			() -> assertTrue(signinPage.getCookieXMain())
 		);
 	}
 }

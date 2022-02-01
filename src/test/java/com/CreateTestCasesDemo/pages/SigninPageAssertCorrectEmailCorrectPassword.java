@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.Cookie;
 
 public class SigninPageAssertCorrectEmailCorrectPassword extends BasePage {
 	private WebDriverWait wait;
@@ -16,6 +17,7 @@ public class SigninPageAssertCorrectEmailCorrectPassword extends BasePage {
 	private boolean navItemSignout;
 	private boolean navYourAmazon;
 	private boolean windowLocationHref;
+	private boolean cookieXMain;
 
 	public String getTitle(){
 		return title;
@@ -43,6 +45,10 @@ public class SigninPageAssertCorrectEmailCorrectPassword extends BasePage {
 
 	public boolean getWindowLocationHref(){
 		return windowLocationHref;
+	}
+
+	public boolean getCookieXMain(){
+		return cookieXMain;
 	}
 
 	public String signinAssertCorrecPageTitle() throws Exception {
@@ -99,5 +105,9 @@ public class SigninPageAssertCorrectEmailCorrectPassword extends BasePage {
 		boolean fs = returnWindowLocationHref.equals("https://www.amazon.com/?ref_=nav_ya_signin&");
 
 		windowLocationHref = c || fs;
+
+		// other cookies: "at-main", "sess-at main", "lc-main"
+		Cookie xMain = driver.manage().getCookieNamed("x-main");
+		cookieXMain = xMain != null;
 	}
 }
